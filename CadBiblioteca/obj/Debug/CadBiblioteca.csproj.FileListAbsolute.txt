@@ -1,0 +1,11 @@
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\bin\Debug\CadBiblioteca.dll.config
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\bin\Debug\CadBiblioteca.dll
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\bin\Debug\CadBiblioteca.pdb
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\bin\Debug\EntityFramework.dll
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\bin\Debug\EntityFramework.SqlServer.dll
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\bin\Debug\EntityFramework.xml
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\bin\Debug\EntityFramework.SqlServer.xml
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\obj\Debug\CadBiblioteca.csproj.CoreCompileInputs.cache
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\obj\Debug\CadBiblioteca.csproj.CopyComplete
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\obj\Debug\CadBiblioteca.dll
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\CadBiblioteca\obj\Debug\CadBiblioteca.pdb

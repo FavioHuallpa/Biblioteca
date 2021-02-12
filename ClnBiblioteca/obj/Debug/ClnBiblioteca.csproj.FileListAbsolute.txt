@@ -1,0 +1,15 @@
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\ClnBiblioteca.dll.config
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\ClnBiblioteca.dll
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\ClnBiblioteca.pdb
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\CadBiblioteca.dll
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\EntityFramework.dll
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\EntityFramework.SqlServer.dll
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\CadBiblioteca.pdb
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\CadBiblioteca.dll.config
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\EntityFramework.xml
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\bin\Debug\EntityFramework.SqlServer.xml
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\obj\Debug\ClnBiblioteca.csprojAssemblyReference.cache
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\obj\Debug\ClnBiblioteca.csproj.CoreCompileInputs.cache
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\obj\Debug\ClnBiblioteca.csproj.CopyComplete
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\obj\Debug\ClnBiblioteca.dll
+D:\SIS457\Proyecto Biblioteca\Proyecto\Biblioteca\ClnBiblioteca\obj\Debug\ClnBiblioteca.pdb

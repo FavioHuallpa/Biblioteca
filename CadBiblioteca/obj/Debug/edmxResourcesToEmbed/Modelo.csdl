@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BibliotecaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Autores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nacionalidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="registroActivo" Type="Boolean" />
+    <NavigationProperty Name="Libros" Relationship="Self.FK_Libros_Autores" FromRole="Autores" ToRole="Libros" />
+  </EntityType>
+  <EntityType Name="Devoluciones">
+    <Key>
+      <PropertyRef Name="cod" />
+    </Key>
+    <Property Name="cod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="registroActivo" Type="Boolean" />
+    <NavigationProperty Name="Prestamos" Relationship="Self.FK_Prestamos_Devoluciones" FromRole="Devoluciones" ToRole="Prestamos" />
+  </EntityType>
+  <EntityType Name="Editoriales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="registroActivo" Type="Boolean" />
+    <NavigationProperty Name="Libros" Relationship="Self.FK_Libros_Editoriales" FromRole="Editoriales" ToRole="Libros" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telfono" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="registroActivo" Type="Boolean" />
+    <NavigationProperty Name="Prestamos" Relationship="Self.FK_Prestamos_Empleados" FromRole="Empleados" ToRole="Prestamos" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Empleados" FromRole="Empleados" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Libros">
+    <Key>
+      <PropertyRef Name="cod_libro" />
+    </Key>
+    <Property Name="cod_libro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titulo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEditoriales" Type="Int32" Nullable="false" />
+    <Property Name="idAutores" Type="Int32" Nullable="false" />
+    <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="registroActivo" Type="Boolean" />
+    <NavigationProperty Name="Autores" Relationship="Self.FK_Libros_Autores" FromRole="Libros" ToRole="Autores" />
+    <NavigationProperty Name="Editoriales" Relationship="Self.FK_Libros_Editoriales" FromRole="Libros" ToRole="Editoriales" />
+    <NavigationProperty Name="Prestamos" Relationship="Self.FK_Prestamos_Libros" FromRole="Libros" ToRole="Prestamos" />
+  </EntityType>
+  <EntityType Name="Prestamos">
+    <Key>
+      <PropertyRef Name="no_prestamo" />
+    </Key>
+    <Property Name="no_prestamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idEmpleados" Type="Int32" Nullable="false" />
+    <Property Name="ciEstudiantes" Type="Int32" Nullable="false" />
+    <Property Name="cod_libroLibros" Type="Int32" Nullable="false" />
+    <Property Name="codDevoluciones" Type="Int32" Nullable="false" />
+    <Property Name="fechaprestamo" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+    <Property Name="fechadevolucion" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+    <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="registroActivo" Type="Boolean" />
+    <NavigationProperty Name="Devoluciones" Relationship="Self.FK_Prestamos_Devoluciones" FromRole="Prestamos" ToRole="Devoluciones" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Prestamos_Empleados" FromRole="Prestamos" ToRole="Empleados" />
+    <NavigationProperty Name="Libros" Relationship="Self.FK_Prestamos_Libros" FromRole="Prestamos" ToRole="Libros" />
+    <NavigationProperty Name="Estudiantes" Relationship="BibliotecaModel.FK_Prestamos_Estudiantes" FromRole="Prestamos" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idEmpleados" Type="Int32" Nullable="false" />
+    <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="registroActivo" Type="Boolean" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK_Usuario_Empleados" FromRole="Usuario" ToRole="Empleados" />
+  </EntityType>
+  <Association Name="FK_Libros_Autores">
+    <End Role="Autores" Type="Self.Autores" Multiplicity="1" />
+    <End Role="Libros" Type="Self.Libros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Autores">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Libros">
+        <PropertyRef Name="idAutores" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prestamos_Devoluciones">
+    <End Role="Devoluciones" Type="Self.Devoluciones" Multiplicity="1" />
+    <End Role="Prestamos" Type="Self.Prestamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Devoluciones">
+        <PropertyRef Name="cod" />
+      </Principal>
+      <Dependent Role="Prestamos">
+        <PropertyRef Name="codDevoluciones" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Libros_Editoriales">
+    <End Role="Editoriales" Type="Self.Editoriales" Multiplicity="1" />
+    <End Role="Libros" Type="Self.Libros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Editoriales">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Libros">
+        <PropertyRef Name="idEditoriales" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prestamos_Empleados">
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+    <End Role="Prestamos" Type="Self.Prestamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Prestamos">
+        <PropertyRef Name="idEmpleados" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Empleados">
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idEmpleados" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prestamos_Libros">
+    <End Role="Libros" Type="Self.Libros" Multiplicity="1" />
+    <End Role="Prestamos" Type="Self.Prestamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libros">
+        <PropertyRef Name="cod_libro" />
+      </Principal>
+      <Dependent Role="Prestamos">
+        <PropertyRef Name="cod_libroLibros" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BibliotecaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Autores" EntityType="Self.Autores" />
+    <EntitySet Name="Devoluciones" EntityType="Self.Devoluciones" />
+    <EntitySet Name="Editoriales" EntityType="Self.Editoriales" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="Libros" EntityType="Self.Libros" />
+    <EntitySet Name="Prestamos" EntityType="Self.Prestamos" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Libros_Autores" Association="Self.FK_Libros_Autores">
+      <End Role="Autores" EntitySet="Autores" />
+      <End Role="Libros" EntitySet="Libros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prestamos_Devoluciones" Association="Self.FK_Prestamos_Devoluciones">
+      <End Role="Devoluciones" EntitySet="Devoluciones" />
+      <End Role="Prestamos" EntitySet="Prestamos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Libros_Editoriales" Association="Self.FK_Libros_Editoriales">
+      <End Role="Editoriales" EntitySet="Editoriales" />
+      <End Role="Libros" EntitySet="Libros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prestamos_Empleados" Association="Self.FK_Prestamos_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Prestamos" EntitySet="Prestamos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Empleados" Association="Self.FK_Usuario_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prestamos_Libros" Association="Self.FK_Prestamos_Libros">
+      <End Role="Libros" EntitySet="Libros" />
+      <End Role="Prestamos" EntitySet="Prestamos" />
+    </AssociationSet>
+    <FunctionImport Name="paGetFecha" ReturnType="Collection(DateTime)" />
+    <FunctionImport Name="paUsuarioListar" ReturnType="Collection(BibliotecaModel.paUsuarioListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="paEstudiantesListar" ReturnType="Collection(BibliotecaModel.paEstudiantesListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Estudiantes" EntityType="BibliotecaModel.Estudiantes" />
+    <AssociationSet Name="FK_Prestamos_Estudiantes" Association="BibliotecaModel.FK_Prestamos_Estudiantes">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Prestamos" EntitySet="Prestamos" />
+    </AssociationSet>
+    <FunctionImport Name="paLibrosListar" ReturnType="Collection(BibliotecaModel.paLibrosListar_Result)">
+      <Parameter Name="parametro" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BibliotecaModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BibliotecaModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="paUsuarioListar_Result">
+    <Property Type="Int32" Name="idUsuario" Nullable="false" />
+    <Property Type="Int32" Name="idEmpleados" Nullable="false" />
+    <Property Type="String" Name="usuario" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="apellido" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="telfono" Nullable="false" Precision="10" Scale="0" />
+  </ComplexType>
+  <ComplexType Name="paEstudiantesListar_Result">
+    <Property Type="Int32" Name="ci" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="apellido" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="direccion" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="edad" Nullable="false" Precision="4" Scale="0" />
+    <Property Type="String" Name="carrera" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fecharegistro" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="Estudiantes">
+    <Key>
+      <PropertyRef Name="ci" />
+    </Key>
+    <Property Name="ci" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="carrera" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="registroActivo" Type="Boolean" />
+    <Property Name="edad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Prestamos" Relationship="BibliotecaModel.FK_Prestamos_Estudiantes" FromRole="Estudiantes" ToRole="Prestamos" />
+  </EntityType>
+  <Association Name="FK_Prestamos_Estudiantes">
+    <End Type="BibliotecaModel.Estudiantes" Role="Estudiantes" Multiplicity="1" />
+    <End Type="BibliotecaModel.Prestamos" Role="Prestamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="ci" />
+      </Principal>
+      <Dependent Role="Prestamos">
+        <PropertyRef Name="ciEstudiantes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="paLibrosListar_Result">
+    <Property Type="Int32" Name="cod_libro" Nullable="false" />
+    <Property Type="String" Name="titulo" Nullable="false" MaxLength="40" />
+    <Property Type="Int32" Name="idEditoriales" Nullable="false" />
+    <Property Type="Int32" Name="idAutores" Nullable="false" />
+    <Property Type="String" Name="usuarioRegistro" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="fecharegistro" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
